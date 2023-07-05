@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <p>Produto</p>
+        <div class="pesquisa">
+          <label for="pesquisa">Pesquisa:</label>
+          <input type="text" id="pesquisa" placeholder="Pesquisa..." />
+          <button id="id">Pesquisa por ID</button>
+          <button id="categoria">Pesquisa por Categoria</button>
+        </div>
+        <div class="popup">
+          <div class="form">
+            <p class="close">X</p>
+            <label for="cat"
+              >Categoria
+              <input type="text" id="cat" />
+            </label>
+            <label for="des"
+              >Descrição
+              <input type="text" id="des" />
+            </label>
+            <label for="valor"
+              >Valor
+              <input type="text" id="valor" />
+            </label>
+            <button id="add">Adicionar</button>
+          </div>
+        </div>
+        <div class="table">
+          <table border="1">
+            <tr id="header">
+              <th>Descrição</th>
+              <th>Categoria</th>
+              <th>valor</th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tbody id="produtos"></tbody>
+          </table>
+          <div class="cadastrar">
+            <button id="cadastrar">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="scripts/script.js"></script>
+  </body>
+</html>
