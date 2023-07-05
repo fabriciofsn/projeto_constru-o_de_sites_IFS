@@ -9,7 +9,7 @@
   <body>
     <div class="wrapper">
       <div class="container">
-        <p>Produto</p>
+        <p>Categoria</p>
         <div class="pesquisa">
           <label for="pesquisa">Pesquisa:</label>
           <input type="text" id="pesquisa" placeholder="Pesquisa..." />
@@ -19,21 +19,17 @@
         <div class="popup">
           <div class="form">
             <p class="close">X</p>
-            <label for="idPro"
-              >Id do Produto
-              <input type="text" id="idPro" />
+            <label for="cat"
+              >Id da Categoria
+              <input type="number" id="idCat" />
             </label>
-            <label for="namePro"
+            <label for="nameCat"
               >Nome
-              <input type="text" id="namePro" />
+              <input type="text" id="nameCat" />
             </label>
-            <label for="desPro"
+            <label for="desCat"
               >Descrição
-              <input type="text" id="desPro" />
-            </label>
-            <label for="valor"
-              >Valor
-              <input type="number" id="valor">
+              <input type="text" id="desCat" />
             </label>
             <button id="add">Adicionar</button>
           </div>
@@ -41,14 +37,13 @@
         <div class="table">
           <table border="1">
             <tr id="header">
-              <th>Id do Produto</th>
+              <th>Id da Categoria</th>
               <th>Nome</th>
               <th>Descrição</th>
-              <th>Valor</th>
               <th></th>
               <th></th>
             </tr>
-            <tbody id="produtos"></tbody>
+            <tbody id="categorias"></tbody>
           </table>
           <div class="cadastrar">
             <button id="cadastrar">Cadastrar</button>

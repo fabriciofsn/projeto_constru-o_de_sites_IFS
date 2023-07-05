@@ -62,11 +62,11 @@ button#id {
   border-radius: 4px;
 }
 
-button#categoria {
+button#filtro {
   background-color: #198754;
   color: white;
   width: 33%;
-  height: 30%;
+  height: 30px;
   border-radius: 4px;
   border: none;
 }
