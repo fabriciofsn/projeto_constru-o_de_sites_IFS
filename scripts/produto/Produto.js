@@ -4,6 +4,7 @@ export class Produto {
   valor;
   button;
   produtos;
+  id = 0;
 
   valores = {
     descricao: "",
@@ -57,7 +58,9 @@ export class Produto {
     const thExcluir = document.createElement("th");
     const editar = document.createElement("button");
     const excluir = document.createElement("button");
-    const div = document.createElement("div");
+
+    tr.classList.add(`${this.id}`);
+    this.id++;
 
     editar.classList.add("editar");
     excluir.classList.add("excluir");
