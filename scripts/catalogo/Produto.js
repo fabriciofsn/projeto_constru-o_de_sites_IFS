@@ -8,9 +8,9 @@ export class Produto {
   id = 0;
 
   valores = {
-    descricao: "",
-    categoria: "",
     nome: "",
+    categoria: "",
+    descricao: "",
     valor: "",
   };
   constructor(nome, categoria, descricao, valor, button, produtos) {
