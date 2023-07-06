@@ -4,6 +4,9 @@ export class Categoria {
   button;
   categorias;
   id = 0;
+  catID = [];
+  catNome = [];
+  catDesc = [];
 
   valores = {
     nome: "",
@@ -17,7 +20,74 @@ export class Categoria {
   }
 
   init() {
+    this.onLoad();
     this.getValues();
+  }
+
+  onLoad() {
+    if (
+      localStorage.getItem("catID") &&
+      localStorage.getItem("catNome") &&
+      localStorage.getItem("catDesc")
+    ) {
+      const tr = document.createElement("tr");
+
+      const thDesCat = document.createElement("th");
+      const thIdCat = document.createElement("th");
+      const thNomeCat = document.createElement("th");
+
+      const catID = localStorage.getItem("catID");
+      const catNome = localStorage.getItem("catNome");
+      const catDesc = localStorage.getItem("catDesc");
+
+      const jsonID = JSON.parse(catID);
+      const arrID = Array.from(jsonID);
+
+      const josnNome = JSON.parse(catNome);
+      const arrNome = Array.from(josnNome);
+
+      const jsonDesc = JSON.parse(catDesc);
+      const arrDesc = Array.from(jsonDesc);
+
+      arrID.forEach((id) => {
+        this.id += id;
+      });
+
+      for (let i = 0; i < arrNome.length; i++) {
+        const tr = document.createElement("tr");
+        const thIdCat = document.createElement("th");
+        const thNomeCat = document.createElement("th");
+        const thDesCat = document.createElement("th");
+        const thEditar = document.createElement("th");
+        const thDeletar = document.createElement("th");
+        const editar = document.createElement("button");
+        const deletar = document.createElement("button");
+
+        editar.innerText = "Editar";
+        editar.classList.add("editar");
+        deletar.innerText = "Deletar";
+        deletar.classList.add("excluir");
+
+        thIdCat.innerText = arrID[i];
+        tr.append(thIdCat);
+        this.categorias.appendChild(tr);
+
+        thNomeCat.innerText = arrNome[i];
+        tr.appendChild(thNomeCat);
+        this.categorias.appendChild(tr);
+
+        thDesCat.innerText = arrDesc[i];
+        tr.appendChild(thDesCat);
+        this.categorias.appendChild(tr);
+
+        thEditar.appendChild(editar);
+        tr.appendChild(thEditar);
+        this.categorias.appendChild(tr);
+        thDeletar.appendChild(deletar);
+        tr.appendChild(thDeletar);
+        this.categorias.appendChild(tr);
+      }
+    }
   }
 
   getValues() {
@@ -30,6 +100,14 @@ export class Categoria {
         if (this.nome.value !== "" && this.descricao.value !== "") {
           this.valores.nome = this.nome.value;
           this.valores.descricao = this.descricao.value;
+
+          this.catID.push(this.id);
+          this.catNome.push(this.valores.nome);
+          this.catDesc.push(this.valores.descricao);
+
+          localStorage.setItem("catID", JSON.stringify(this.catID));
+          localStorage.setItem("catNome", JSON.stringify(this.catNome));
+          localStorage.setItem("catDesc", JSON.stringify(this.catDesc));
 
           this.nome.value = "";
           this.descricao.value = "";

@@ -28,7 +28,7 @@ input {
   outline: none;
   width: 100%;
   height: 30px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   padding: 0 3px;
 }
 
@@ -54,7 +54,7 @@ button {
 }
 
 button#id {
-  background-color: #0d6efd;
+  background-color: #7c0151;
   color: white;
   border: none;
   width: 33%;
@@ -63,7 +63,7 @@ button#id {
 }
 
 button#filtro {
-  background-color: #198754;
+  background-color: #7c0151;
   color: white;
   width: 33%;
   height: 30px;
@@ -92,7 +92,7 @@ tbody th {
 }
 
 tr#header {
-  background-color: #35599a;
+  background-color: #650094;
 }
 
 tr#header th {
@@ -114,13 +114,14 @@ tr#header th {
 }
 
 .cadastrar a {
-  background-color: #198754;
+  background-color: #b515e0;
   border-radius: 4px;
   text-decoration: none;
   color: white;
   display: flex;
   align-items: center;
   padding: 0.5rem;
+  font-weight: bold;
 }
 
 .cadastrar button {
@@ -129,7 +130,7 @@ tr#header th {
   font-weight: bold;
   font-size: 1rem;
   color: white;
-  background-color: #0d6efd;
+  background-color: #8d0bba;
   border: none;
   border-radius: 4px;
   padding: 0.5rem;
@@ -173,7 +174,7 @@ tr#header th {
 
 .form button {
   margin: 10px 0;
-  background-color: #198754;
+  background-color: #007500;
   color: white;
   width: 39%;
   height: 30px;
@@ -206,7 +207,7 @@ tr#header th {
 }
 .editar,
 .excluir {
-  background-color: #198754;
+  background-color: #007500;
   color: white;
   width: 70px;
   height: 40%;
