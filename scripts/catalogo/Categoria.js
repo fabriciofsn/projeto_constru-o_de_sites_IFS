@@ -31,12 +31,6 @@ export class Categoria {
       localStorage.getItem("catDesc") &&
       window.location.href == "http://127.0.0.1:5500/categoria.html"
     ) {
-      const tr = document.createElement("tr");
-
-      const thDesCat = document.createElement("th");
-      const thIdCat = document.createElement("th");
-      const thNomeCat = document.createElement("th");
-
       const catID = localStorage.getItem("catID");
       const catNome = localStorage.getItem("catNome");
       const catDesc = localStorage.getItem("catDesc");
