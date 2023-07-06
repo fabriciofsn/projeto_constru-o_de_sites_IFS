@@ -4,7 +4,7 @@ export class Categoria {
   button;
   categorias;
   id = 0;
-  localCatetorias = "";
+
   valores = {
     descricao: "",
     nome: "",
@@ -21,27 +21,22 @@ export class Categoria {
   }
 
   getValues() {
-    if (this.button)
-      this.button.addEventListener("click", () => {
-        this.valores = {
-          descricao: "",
-          nome: "",
-        };
-        if (this.nome.value !== "" && this.descricao.value !== "") {
-          this.valores.nome = this.nome.value;
-          this.valores.descricao = this.descricao.value;
+    this.button.addEventListener("click", () => {
+      this.valores = {
+        descricao: "",
+        nome: "",
+      };
+      if (this.nome.value !== "" && this.descricao.value !== "") {
+        this.valores.nome = this.nome.value;
+        this.valores.descricao = this.descricao.value;
 
-          this.localCatetorias = localStorage.setItem(
-            "categorias",
-            JSON.stringify(this.nome.value)
-          );
-          this.nome.value = "";
-          this.descricao.value = "";
-        }
-        console.log(this.valores);
+        this.nome.value = "";
+        this.descricao.value = "";
+      }
+      console.log(this.valores);
 
-        this.addValuesToBody();
-      });
+      this.addValuesToBody();
+    });
   }
 
   addValuesToBody() {
