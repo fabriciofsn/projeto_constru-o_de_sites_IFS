@@ -30,15 +30,15 @@ export class Produto {
     if (this.button)
       this.button.addEventListener("click", () => {
         this.valores = {
-          descricao: "",
-          categoria: "",
           nome: "",
+          categoria: "",
+          descricao: "",
           valor: "",
         };
         if (
+          this.nome.value !== "" &&
           this.categoria.value !== "" &&
           this.descricao.value !== "" &&
-          this.nome.value !== "" &&
           this.valor.value !== ""
         ) {
           this.valores.nome = this.nome.value;

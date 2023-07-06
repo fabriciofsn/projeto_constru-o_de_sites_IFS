@@ -1,17 +1,17 @@
 export class Categoria {
-  descricao;
   nome;
+  descricao;
   button;
   categorias;
   id = 0;
 
   valores = {
-    descricao: "",
     nome: "",
+    descricao: "",
   };
   constructor(nome, descricao, button, categorias) {
-    this.descricao = descricao;
     this.nome = nome;
+    this.descricao = descricao;
     this.button = button;
     this.categorias = categorias;
   }
@@ -24,8 +24,8 @@ export class Categoria {
     if (this.button)
       this.button.addEventListener("click", () => {
         this.valores = {
-          descricao: "",
           nome: "",
+          descricao: "",
         };
         if (this.nome.value !== "" && this.descricao.value !== "") {
           this.valores.nome = this.nome.value;
