@@ -23,6 +23,7 @@ export class Produto {
   }
 
   init() {
+    this.addValuesToBody();
     this.getValues();
   }
 
