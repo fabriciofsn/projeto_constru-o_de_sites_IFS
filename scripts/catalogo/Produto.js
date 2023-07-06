@@ -1,7 +1,7 @@
 export class Produto {
-  descricao;
-  categoria;
   nome;
+  categoria;
+  descricao;
   valor;
   button;
   produtos;
@@ -13,10 +13,10 @@ export class Produto {
     nome: "",
     valor: "",
   };
-  constructor(descricao, nome, categoria, valor, button, produtos) {
-    this.descricao = descricao;
+  constructor(nome, categoria, descricao, valor, button, produtos) {
     this.nome = nome;
     this.categoria = categoria;
+    this.descricao = descricao;
     this.valor = valor;
     this.button = button;
     this.produtos = produtos;
@@ -29,15 +29,15 @@ export class Produto {
   getValues() {
     this.button.addEventListener("click", () => {
       this.valores = {
-        descricao: "",
-        categoria: "",
         nome: "",
+        categoria: "",
+        descricao: "",
         valor: "",
       };
       if (
+        this.nome.value !== "" &&
         this.categoria.value !== "" &&
         this.descricao.value !== "" &&
-        this.nome.value !== "" &&
         this.valor.value !== ""
       ) {
         this.valores.nome = this.nome.value;
@@ -60,8 +60,8 @@ export class Produto {
     const tr = document.createElement("tr");
     const thIdPro = document.createElement("th");
     const thNomePro = document.createElement("th");
-    const thDesPro = document.createElement("th");
     const thCat = document.createElement("th");
+    const thDesPro = document.createElement("th");
     const thValor = document.createElement("th");
     const thEditar = document.createElement("th");
     const thExcluir = document.createElement("th");
@@ -80,21 +80,21 @@ export class Produto {
     thEditar.appendChild(editar);
     thExcluir.appendChild(excluir);
     thNomePro.innerText = this.valores.nome;
-    thDesPro.innerText = this.valores.descricao;
     thCat.innerText = this.valores.categoria;
+    thDesPro.innerText = this.valores.descricao;
     thValor.innerText = this.valores.valor;
     tr.appendChild(thIdPro);
     tr.appendChild(thNomePro);
-    tr.appendChild(thDesPro);
     tr.appendChild(thCat);
+    tr.appendChild(thDesPro);
     tr.appendChild(thValor);
     tr.appendChild(thEditar);
     tr.appendChild(thExcluir);
 
     if (
+      this.valores.nome &&
       this.valores.categoria &&
       this.valores.descricao &&
-      this.valores.nome &&
       this.valores.valor
     ) {
       this.produtos.appendChild(tr);
