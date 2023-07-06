@@ -27,33 +27,34 @@ export class Produto {
   }
 
   getValues() {
-    this.button.addEventListener("click", () => {
-      this.valores = {
-        descricao: "",
-        categoria: "",
-        nome: "",
-        valor: "",
-      };
-      if (
-        this.categoria.value !== "" &&
-        this.descricao.value !== "" &&
-        this.nome.value !== "" &&
-        this.valor.value !== ""
-      ) {
-        this.valores.nome = this.nome.value;
-        this.valores.categoria = this.categoria.value;
-        this.valores.descricao = this.descricao.value;
-        this.valores.valor = this.valor.value;
+    if (this.button)
+      this.button.addEventListener("click", () => {
+        this.valores = {
+          descricao: "",
+          categoria: "",
+          nome: "",
+          valor: "",
+        };
+        if (
+          this.categoria.value !== "" &&
+          this.descricao.value !== "" &&
+          this.nome.value !== "" &&
+          this.valor.value !== ""
+        ) {
+          this.valores.nome = this.nome.value;
+          this.valores.categoria = this.categoria.value;
+          this.valores.descricao = this.descricao.value;
+          this.valores.valor = this.valor.value;
 
-        this.nome.value = "";
-        this.categoria.value = "";
-        this.descricao.value = "";
-        this.valor.value = "";
-      }
-      console.log(this.valores);
+          this.nome.value = "";
+          this.categoria.value = "";
+          this.descricao.value = "";
+          this.valor.value = "";
+        }
+        console.log(this.valores);
 
-      this.addValuesToBody();
-    });
+        this.addValuesToBody();
+      });
   }
 
   addValuesToBody() {

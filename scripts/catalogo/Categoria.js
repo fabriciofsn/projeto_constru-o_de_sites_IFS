@@ -21,22 +21,23 @@ export class Categoria {
   }
 
   getValues() {
-    this.button.addEventListener("click", () => {
-      this.valores = {
-        descricao: "",
-        nome: "",
-      };
-      if (this.nome.value !== "" && this.descricao.value !== "") {
-        this.valores.nome = this.nome.value;
-        this.valores.descricao = this.descricao.value;
+    if (this.button)
+      this.button.addEventListener("click", () => {
+        this.valores = {
+          descricao: "",
+          nome: "",
+        };
+        if (this.nome.value !== "" && this.descricao.value !== "") {
+          this.valores.nome = this.nome.value;
+          this.valores.descricao = this.descricao.value;
 
-        this.nome.value = "";
-        this.descricao.value = "";
-      }
-      console.log(this.valores);
+          this.nome.value = "";
+          this.descricao.value = "";
+        }
+        console.log(this.valores);
 
-      this.addValuesToBody();
-    });
+        this.addValuesToBody();
+      });
   }
 
   addValuesToBody() {
