@@ -28,7 +28,8 @@ export class Categoria {
     if (
       localStorage.getItem("catID") &&
       localStorage.getItem("catNome") &&
-      localStorage.getItem("catDesc")
+      localStorage.getItem("catDesc") &&
+      window.location.href == "http://127.0.0.1:5500/categoria.html"
     ) {
       const tr = document.createElement("tr");
 

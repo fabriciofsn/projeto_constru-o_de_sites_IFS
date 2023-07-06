@@ -23,8 +23,30 @@ export class Produto {
   }
 
   init() {
+    this.addOpcoes();
     this.addValuesToBody();
     this.getValues();
+  }
+
+  addOpcoes() {
+    if (localStorage.getItem("catNome")) {
+      const opcoes = document.querySelector("#opcoes");
+      const select = document.createElement("select");
+
+      const categorias = localStorage.getItem("catNome");
+
+      const JSONcat = JSON.parse(categorias);
+      const arrCategorias = Array.from(JSONcat);
+
+      for (let categoria of arrCategorias) {
+        let option = document.createElement("option");
+
+        option.innerText = categoria;
+        select.appendChild(option);
+      }
+      if (window.location.href == "http://127.0.0.1:5500/index.html")
+        opcoes.appendChild(select);
+    }
   }
 
   getValues() {

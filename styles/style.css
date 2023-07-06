@@ -51,6 +51,7 @@ button {
 .container {
   width: 100%;
   max-width: 800px;
+  position: relative;
 }
 
 button#id {
@@ -145,14 +146,14 @@ tr#header th {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #650094;
   height: 50vh;
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
   border-radius: 4px;
   text-align: center;
-  top: 10%;
-  right: 30%;
+  top: -50px;
+  right: 90px;
 
   margin: auto;
   animation: anim 0.5s forwards;
@@ -165,11 +166,15 @@ tr#header th {
 .popup input {
   max-width: 500px;
   display: block;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d9d9d9;
 }
 
 .popup label {
   font-weight: normal;
   color: white;
+  margin: 10px 0;
 }
 
 .form button {
@@ -223,5 +228,19 @@ tr#header th {
 
 .pesquisa-input input {
   background-color: transparent;
+  border: none;
+}
+
+#opcoes {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  background-color: green;
+}
+
+#opcoes select {
+  width: 200px;
+  margin: auto;
+  font-size: 1.2rem;
   border: none;
 }
