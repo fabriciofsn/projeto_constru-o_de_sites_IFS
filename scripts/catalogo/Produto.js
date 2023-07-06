@@ -1,6 +1,7 @@
 export class Produto {
   descricao;
   categoria;
+  nome;
   valor;
   button;
   produtos;
@@ -9,10 +10,12 @@ export class Produto {
   valores = {
     descricao: "",
     categoria: "",
+    nome: "",
     valor: "",
   };
-  constructor(categoria, descricao, valor, button, produtos) {
+  constructor(categoria, nome, descricao, valor, button, produtos) {
     this.descricao = descricao;
+    this.nome = nome;
     this.categoria = categoria;
     this.valor = valor;
     this.button = button;
@@ -28,17 +31,21 @@ export class Produto {
       this.valores = {
         descricao: "",
         categoria: "",
+        nome: "",
         valor: "",
       };
       if (
         this.categoria.value !== "" &&
         this.descricao.value !== "" &&
+        this.nome.value !== "" &&
         this.valor.value !== ""
       ) {
+        this.valores.nome = this.nome.value;
         this.valores.categoria = this.categoria.value;
         this.valores.descricao = this.descricao.value;
         this.valores.valor = this.valor.value;
-
+        
+        this.nome.value = "";
         this.categoria.value = "";
         this.descricao.value = "";
         this.valor.value = "";
@@ -51,7 +58,9 @@ export class Produto {
 
   addValuesToBody() {
     const tr = document.createElement("tr");
-    const thDes = document.createElement("th");
+    const thIdPro = document.createElement("th");
+    const thNomePro = document.createElement("th");
+    const thDesPro = document.createElement("th");
     const thCat = document.createElement("th");
     const thValor = document.createElement("th");
     const thEditar = document.createElement("th");
@@ -60,6 +69,7 @@ export class Produto {
     const excluir = document.createElement("button");
 
     tr.classList.add(`${this.id}`);
+    thIdPro.innerText = `${this.id}`;
     this.id++;
 
     editar.classList.add("editar");
@@ -69,10 +79,13 @@ export class Produto {
 
     thEditar.appendChild(editar);
     thExcluir.appendChild(excluir);
-    thDes.innerText = this.valores.categoria;
-    thCat.innerText = this.valores.descricao;
+    thNomePro.innerText = this.valores.nome;
+    thDesPro.innerText = this.valores.descricao;
+    thCat.innerText = this.valores.categoria;
     thValor.innerText = this.valores.valor;
-    tr.appendChild(thDes);
+    tr.appendChild(thIdPro);
+    tr.appendChild(thNomePro);
+    tr.appendChild(thDesPro);
     tr.appendChild(thCat);
     tr.appendChild(thValor);
     tr.appendChild(thEditar);
@@ -81,6 +94,7 @@ export class Produto {
     if (
       this.valores.categoria &&
       this.valores.descricao &&
+      this.valores.nome &&
       this.valores.valor
     ) {
       this.produtos.appendChild(tr);
