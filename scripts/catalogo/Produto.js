@@ -13,7 +13,7 @@ export class Produto {
     nome: "",
     valor: "",
   };
-  constructor(categoria, nome, descricao, valor, button, produtos) {
+  constructor(descricao, nome, categoria, valor, button, produtos) {
     this.descricao = descricao;
     this.nome = nome;
     this.categoria = categoria;
