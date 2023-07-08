@@ -63,7 +63,6 @@ export class Produto {
 
         if (
           this.nome.value !== "" &&
-          this.categoria.value !== "" &&
           this.descricao.value !== "" &&
           this.valor.value !== ""
         ) {
