@@ -10,7 +10,7 @@ const activeModal = new ActiveModal(btnCadastrar, popup, btnClose);
 activeModal.init();
 
 const nomePro = document.querySelector("#namePro");
-const catPro = document.querySelector("#cat");
+const catPro = document.querySelector("#opcoes");
 const desPro = document.querySelector("#desPro");
 const valor = document.querySelector("#valor");
 const btnAdd = document.querySelector("#addPro");

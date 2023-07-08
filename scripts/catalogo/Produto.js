@@ -30,8 +30,8 @@ export class Produto {
 
   addOpcoes() {
     if (localStorage.getItem("catNome")) {
-      const opcoes = document.querySelector("#opcoes");
       const select = document.createElement("select");
+      select.setAttribute("id", "categorias");
 
       const categorias = localStorage.getItem("catNome");
 
@@ -42,10 +42,12 @@ export class Produto {
         let option = document.createElement("option");
 
         option.innerText = categoria;
+        option.setAttribute("value", categoria);
         select.appendChild(option);
       }
+
       if (window.location.href == "http://127.0.0.1:5500/index.html")
-        opcoes.appendChild(select);
+        this.categoria.appendChild(select);
     }
   }
 
@@ -58,14 +60,16 @@ export class Produto {
           descricao: "",
           valor: "",
         };
+
         if (
           this.nome.value !== "" &&
           this.categoria.value !== "" &&
           this.descricao.value !== "" &&
           this.valor.value !== ""
         ) {
+          const select = document.querySelector("#categorias");
           this.valores.nome = this.nome.value;
-          this.valores.categoria = this.categoria.value;
+          this.valores.categoria = select.value;
           this.valores.descricao = this.descricao.value;
           this.valores.valor = this.valor.value;
 
@@ -100,7 +104,6 @@ export class Produto {
     excluir.classList.add("excluir");
     editar.innerText = "Editar";
     excluir.innerText = "Excluir";
-
     thEditar.appendChild(editar);
     thExcluir.appendChild(excluir);
     thNomePro.innerText = this.valores.nome;
