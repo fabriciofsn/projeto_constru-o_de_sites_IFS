@@ -1,4 +1,4 @@
-import { Editar } from "../editar/Editar.js";
+import { Editar } from "./editar/Editar.js";
 import { ActiveModal } from "./active_modal/ActiveModal.js";
 import { Categoria } from "./catalogo/Categoria.js";
 import { Produto } from "./catalogo/Produto.js";

@@ -5,6 +5,7 @@ export class Editar {
     const nomeCat = document.querySelector("#nameCat");
     const desCat = document.querySelector("#desCat");
     const tr = document.querySelectorAll("#categorias tr");
+    const add = document.querySelector("#add");
 
     editButton.forEach((btn, index) => {
       btn.addEventListener("click", () => {
