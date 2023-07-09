@@ -1,3 +1,4 @@
+import { Editar } from "../editar/Editar.js";
 import { ActiveModal } from "./active_modal/ActiveModal.js";
 import { Categoria } from "./catalogo/Categoria.js";
 import { Produto } from "./catalogo/Produto.js";
@@ -30,3 +31,6 @@ categoria.init();
 
 const deletar = new Deletar();
 deletar.init();
+
+const editar = new Editar();
+editar.init();

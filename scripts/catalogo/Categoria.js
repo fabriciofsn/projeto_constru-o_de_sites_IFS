@@ -24,8 +24,10 @@ export class Categoria {
   loadID() {
     const localID = localStorage.getItem("catID");
     const parseJSON = JSON.parse(localID);
-    const arrID = Array.from(parseJSON);
-    this.id = arrID.length;
+    if (parseJSON) {
+      const arrID = Array.from(parseJSON);
+      this.id = arrID.length;
+    }
   }
 
   init() {
