@@ -29,8 +29,12 @@ const categorias = document.querySelector("#categorias");
 const categoria = new Categoria(nome, descricao, button, categorias);
 categoria.init();
 
-const deletar = new Deletar();
-deletar.init();
+const categoriasRow = document.querySelector("#categorias");
+const trRow = document.querySelectorAll("#categorias tr");
+const deleteButton = document.querySelectorAll(".excluir");
+
+const deletarCategoria = new Deletar(categoriasRow, trRow, deleteButton);
+deletarCategoria.init();
 
 const popupEl = document.querySelector(".popup");
 const editButton = document.querySelectorAll(".editar");

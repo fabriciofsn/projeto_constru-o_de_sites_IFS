@@ -1,14 +1,19 @@
 export class Deletar {
-  init() {
-    const categorias = document.querySelector("#categorias");
-    const tr = document.querySelectorAll("#categorias tr");
-    const deleteButton = document.querySelectorAll(".excluir");
+  categorias;
+  tr;
+  deleteButton;
 
-    deleteButton.forEach((btn, index) => {
+  constructor(categorias, tr, deleteButton) {
+    this.categorias = categorias;
+    this.tr = tr;
+    this.deleteButton = deleteButton;
+  }
+  init() {
+    this.deleteButton.forEach((btn, index) => {
       btn.addEventListener("click", () => {
         let deleteRow = confirm("Deseja deletar esta categoria?");
         if (deleteRow) {
-          categorias.removeChild(tr[index]);
+          this.categorias.removeChild(this.tr[index]);
           setTimeout(() => alert("Categoria deletada!"), 200);
         }
       });
