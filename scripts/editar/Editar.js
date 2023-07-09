@@ -1,18 +1,22 @@
 export class Editar {
+  popup;
+  editButton;
+  nomeCat;
+  desCat;
+  tr;
+  constructor(popup, editButton, nomeCat, desCat, tr) {
+    this.popup = popup;
+    this.editButton = editButton;
+    this.nomeCat = nomeCat;
+    this.desCat = desCat;
+    this.tr = tr;
+  }
   init() {
-    const popup = document.querySelector(".popup");
-    const editButton = document.querySelectorAll(".editar");
-    const nomeCat = document.querySelector("#nameCat");
-    const desCat = document.querySelector("#desCat");
-    const tr = document.querySelectorAll("#categorias tr");
-    const add = document.querySelector("#add");
-
-    editButton.forEach((btn, index) => {
+    this.editButton.forEach((btn, index) => {
       btn.addEventListener("click", () => {
-        popup.classList.add("active");
-
-        nomeCat.value = tr[index].children[1].innerText;
-        desCat.value = tr[index].children[2].innerText;
+        this.popup.classList.add("active");
+        this.nomeCat.value = this.tr[index].children[1].innerText;
+        this.desCat.value = this.tr[index].children[2].innerText;
       });
     });
   }

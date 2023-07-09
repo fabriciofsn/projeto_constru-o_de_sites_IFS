@@ -9,6 +9,7 @@ export class Deletar {
         let deleteRow = confirm("Deseja deletar esta categoria?");
         if (deleteRow) {
           categorias.removeChild(tr[index]);
+          setTimeout(() => alert("Categoria deletada!"), 200);
         }
       });
     });

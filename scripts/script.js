@@ -32,5 +32,11 @@ categoria.init();
 const deletar = new Deletar();
 deletar.init();
 
-const editar = new Editar();
-editar.init();
+const popupEl = document.querySelector(".popup");
+const editButton = document.querySelectorAll(".editar");
+const nomeCat = document.querySelector("#nameCat");
+const desCat = document.querySelector("#desCat");
+const tr = document.querySelectorAll("#categorias tr");
+
+const editarCategoria = new Editar(popupEl, editButton, nomeCat, desCat, tr);
+editarCategoria.init();
