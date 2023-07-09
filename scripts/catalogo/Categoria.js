@@ -3,11 +3,13 @@ export class Categoria {
   descricao;
   button;
   categorias;
-  id = 0;
+
   catID = [];
   catNome = [];
   catDesc = [];
+  categoriasSearch = [];
 
+  id = 0;
   valores = {
     nome: "",
     descricao: "",
@@ -19,9 +21,31 @@ export class Categoria {
     this.categorias = categorias;
   }
 
+  loadID() {
+    const localID = localStorage.getItem("catID");
+    const parseJSON = JSON.parse(localID);
+    const arrID = Array.from(parseJSON);
+    this.id = arrID.length;
+  }
+
   init() {
+    this.searchById();
     this.onLoad();
     this.getValues();
+    this.loadID();
+  }
+
+  searchById() {
+    const pesquisa = document.querySelector("#pesquisa");
+    const btnID = document.querySelector("#id");
+    if (this.categoriasSearch)
+      btnID.addEventListener("click", () => {
+        this.categoriasSearch.forEach((categoria) => {
+          alert(`Categoria Encontrada: ${categoria[pesquisa.value]}`);
+        });
+        pesquisa.value = "";
+        pesquisa.focus();
+      });
   }
 
   onLoad() {
@@ -43,6 +67,7 @@ export class Categoria {
 
       const jsonDesc = JSON.parse(catDesc);
       const arrDesc = Array.from(jsonDesc);
+      this.categoriasSearch.push(arrNome);
 
       arrID.forEach((id) => {
         this.id += id;
@@ -60,7 +85,7 @@ export class Categoria {
 
         editar.innerText = "Editar";
         editar.classList.add("editar");
-        deletar.innerText = "Deletar";
+        deletar.innerText = "Excluir";
         deletar.classList.add("excluir");
 
         thIdCat.innerText = arrID[i];
@@ -95,6 +120,7 @@ export class Categoria {
         if (this.nome.value !== "" && this.descricao.value !== "") {
           this.valores.nome = this.nome.value;
           this.valores.descricao = this.descricao.value;
+          this.categoriasSearch.push(this.nome.value);
 
           this.catID.push(this.id);
           this.catNome.push(this.valores.nome);

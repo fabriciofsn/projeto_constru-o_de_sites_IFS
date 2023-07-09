@@ -1,6 +1,7 @@
 import { ActiveModal } from "./active_modal/ActiveModal.js";
 import { Categoria } from "./catalogo/Categoria.js";
 import { Produto } from "./catalogo/Produto.js";
+import { Deletar } from "./deletar/Deletar.js";
 
 const btnCadastrar = document.querySelector("#cadastrar");
 const popup = document.querySelector(".popup");
@@ -26,3 +27,6 @@ const categorias = document.querySelector("#categorias");
 
 const categoria = new Categoria(nome, descricao, button, categorias);
 categoria.init();
+
+const deletar = new Deletar();
+deletar.init();
