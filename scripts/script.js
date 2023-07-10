@@ -41,6 +41,14 @@ const editButton = document.querySelectorAll(".editar");
 const nomeCat = document.querySelector("#nameCat");
 const desCat = document.querySelector("#desCat");
 const tr = document.querySelectorAll("#categorias tr");
+const popupBtn = document.querySelector(".popup #add");
 
-const editarCategoria = new Editar(popupEl, editButton, nomeCat, desCat, tr);
+const editarCategoria = new Editar(
+  popupEl,
+  editButton,
+  nomeCat,
+  desCat,
+  tr,
+  popupBtn
+);
 editarCategoria.init();
