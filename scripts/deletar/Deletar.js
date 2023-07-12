@@ -2,8 +2,8 @@ export class Deletar {
   categorias;
   tr;
   deleteButton;
-  artigo;
-  verbo;
+  artigo = "";
+  verbo = "";
 
   constructor(categorias, tr, deleteButton, artigo, verbo) {
     this.categorias = categorias;
@@ -21,7 +21,7 @@ export class Deletar {
           );
           if (deleteRow) {
             this.categorias.removeChild(this.tr[index]);
-            setTimeout(() => alert("Categoria deletada!"), 200);
+            setTimeout(() => alert(`${this.verbo} deletada!`), 200);
           }
         });
       });

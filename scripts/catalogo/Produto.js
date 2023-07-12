@@ -135,6 +135,8 @@ export class Produto {
         const thNomeCat = document.createElement("th");
         const thDesCat = document.createElement("th");
         const thDes = document.createElement("th");
+        const thDesc = document.createElement("th");
+        const thValor = document.createElement("th");
         const thEditar = document.createElement("th");
         const thDeletar = document.createElement("th");
         const editar = document.createElement("button");
@@ -161,9 +163,18 @@ export class Produto {
         tr.appendChild(thDesCat);
         this.produtos.appendChild(tr);
 
+        thDesc.innerText = arrDes[i];
+        tr.appendChild(thDesc);
+        this.produtos.appendChild(tr);
+
+        thValor.innerText = arrValor[i];
+        tr.appendChild(thValor);
+        this.produtos.appendChild(tr);
+
         thEditar.appendChild(editar);
         tr.appendChild(thEditar);
         this.produtos.appendChild(tr);
+
         thDeletar.appendChild(deletar);
         tr.appendChild(thDeletar);
         this.produtos.appendChild(tr);
