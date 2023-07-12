@@ -17,7 +17,7 @@ export class Deletar {
       this.deleteButton.forEach((btn, index) => {
         btn.addEventListener("click", () => {
           let deleteRow = confirm(
-            `Deseja deletar ${this.artigo} ${this.verbo}`
+            `Deseja deletar ${this.artigo} ${this.verbo}?`
           );
           if (deleteRow) {
             this.categorias.removeChild(this.tr[index]);

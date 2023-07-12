@@ -12,6 +12,8 @@ export class Produto {
   arrDes = [];
   arrValor = [];
 
+  filterSearch = [];
+
   id = Math.floor(Math.random() * 10000);
 
   valores = {
@@ -34,6 +36,17 @@ export class Produto {
     this.addValuesToBody();
     this.getValues();
     this.onload();
+  }
+
+  searchById() {
+    const pesquisa = document.querySelector("#pesquisa");
+    const btnID = document.querySelector("#id");
+    if (this.categoriasSearch)
+      btnID.addEventListener("click", () => {
+        alert(`Pesquisa por ID realizada!`);
+        pesquisa.value = "";
+        pesquisa.focus();
+      });
   }
 
   addOpcoes() {
@@ -83,6 +96,8 @@ export class Produto {
           this.categoria.value = "";
           this.descricao.value = "";
           this.valor.value = "";
+
+          this.filterSearch.push(this.valores.nome);
 
           this.arrId.push(this.id);
           this.arrNome.push(this.valores.nome);
