@@ -33,7 +33,13 @@ const categoriasRow = document.querySelector("#categorias");
 const trRow = document.querySelectorAll("#categorias tr");
 const deleteButton = document.querySelectorAll(".excluir");
 
-const deletarCategoria = new Deletar(categoriasRow, trRow, deleteButton);
+const deletarCategoria = new Deletar(
+  categoriasRow,
+  trRow,
+  deleteButton,
+  "esta",
+  "categoria"
+);
 deletarCategoria.init();
 
 const popupEl = document.querySelector(".popup");
@@ -57,7 +63,12 @@ const produtosBody = document.querySelector("#produtos");
 const trPro = document.querySelectorAll("#produtos tr");
 const deleteBtn = document.querySelector(".excluir");
 
-if (trPro.length > 0) {
-  const deleteProduto = new Deletar(produtosBody, trPro, deleteBtn);
-  deleteProduto.init();
-}
+const deleteProduto = new Deletar(
+  produtosBody,
+  trPro,
+  deleteBtn,
+  "este",
+  "produto"
+);
+
+deleteProduto.init();
