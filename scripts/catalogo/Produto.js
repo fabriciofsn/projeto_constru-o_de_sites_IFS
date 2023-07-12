@@ -5,7 +5,7 @@ export class Produto {
   valor;
   button;
   produtos;
-  id = 0;
+  id = Math.floor(Math.random() * 10000);
 
   valores = {
     nome: "",
@@ -71,7 +71,6 @@ export class Produto {
           this.valores.categoria = select.value;
           this.valores.descricao = this.descricao.value;
           this.valores.valor = this.valor.value;
-
           this.nome.value = "";
           this.categoria.value = "";
           this.descricao.value = "";
@@ -97,7 +96,7 @@ export class Produto {
 
     tr.classList.add(`${this.id}`);
     thIdPro.innerText = `${this.id}`;
-    this.id++;
+    this.id = Math.floor(Math.random() * 10000);
 
     editar.classList.add("editar");
     excluir.classList.add("excluir");

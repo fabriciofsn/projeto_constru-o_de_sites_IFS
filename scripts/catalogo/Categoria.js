@@ -8,8 +8,9 @@ export class Categoria {
   catNome = [];
   catDesc = [];
   categoriasSearch = [];
+  idSearch = [];
 
-  id = 0;
+  id = Math.floor(Math.random() * 10000);
   valores = {
     nome: "",
     descricao: "",
@@ -21,20 +22,12 @@ export class Categoria {
     this.categorias = categorias;
   }
 
-  loadID() {
-    const localID = localStorage.getItem("catID");
-    const parseJSON = JSON.parse(localID);
-    if (parseJSON) {
-      const arrID = Array.from(parseJSON);
-      this.id = arrID.length;
-    }
-  }
-
   init() {
     this.searchById();
     this.onLoad();
     this.getValues();
-    this.loadID();
+    this.searchByFilter();
+    this.addValuesToBody();
   }
 
   searchById() {
@@ -42,12 +35,26 @@ export class Categoria {
     const btnID = document.querySelector("#id");
     if (this.categoriasSearch)
       btnID.addEventListener("click", () => {
-        this.categoriasSearch.forEach((categoria) => {
-          alert(`Categoria Encontrada: ${categoria[pesquisa.value]}`);
-        });
+        alert(`Pesquisa por ID realizada!`);
         pesquisa.value = "";
         pesquisa.focus();
       });
+  }
+
+  searchByFilter() {
+    const btnID = document.querySelector("#filtro");
+    const pesquisa = document.querySelector("#pesquisa");
+    if (this.categoriasSearch) {
+      btnID.addEventListener("click", () => {
+        this.categoriasSearch.forEach((categoria) => {
+          categoria.forEach((cat) => {
+            if (cat.includes(pesquisa.value)) {
+              alert(`Categoria encontrada: ${cat}`);
+            }
+          });
+        });
+      });
+    }
   }
 
   onLoad() {
@@ -70,7 +77,7 @@ export class Categoria {
       const jsonDesc = JSON.parse(catDesc);
       const arrDesc = Array.from(jsonDesc);
       this.categoriasSearch.push(arrNome);
-
+      this.idSearch.push(arrID);
       arrID.forEach((id) => {
         this.id += id;
       });
@@ -125,8 +132,8 @@ export class Categoria {
           this.categoriasSearch.push(this.nome.value);
 
           this.catID.push(this.id);
-          this.catNome.push(this.valores.nome);
-          this.catDesc.push(this.valores.descricao);
+          this.catNome.push(this.valores.nome.toLowerCase());
+          this.catDesc.push(this.valores.descricao.toLowerCase());
 
           localStorage.setItem("catID", JSON.stringify(this.catID));
           localStorage.setItem("catNome", JSON.stringify(this.catNome));
@@ -153,7 +160,7 @@ export class Categoria {
 
     tr.classList.add(`${this.id}`);
     thIdCat.innerText = `${this.id}`;
-    this.id++;
+    this.id = Math.floor(Math.random() * 10000);
 
     editar.classList.add("editar");
     excluir.classList.add("excluir");

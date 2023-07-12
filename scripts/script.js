@@ -52,3 +52,12 @@ const editarCategoria = new Editar(
   popupBtn
 );
 editarCategoria.init();
+
+const produtosBody = document.querySelector("#produtos");
+const trPro = document.querySelectorAll("#produtos tr");
+const deleteBtn = document.querySelector(".excluir");
+
+if (trPro.length > 0) {
+  const deleteProduto = new Deletar(produtosBody, trPro, deleteBtn);
+  deleteProduto.init();
+}
