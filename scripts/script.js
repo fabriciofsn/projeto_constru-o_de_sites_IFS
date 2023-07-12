@@ -40,7 +40,9 @@ const deletarCategoria = new Deletar(
   "esta",
   "categoria"
 );
-deletarCategoria.init();
+if (window.location.href == "http://127.0.0.1:5500/categoria.html") {
+  deletarCategoria.init();
+}
 
 const popupEl = document.querySelector(".popup");
 const editButton = document.querySelectorAll(".editar");
@@ -57,11 +59,12 @@ const editarCategoria = new Editar(
   tr,
   popupBtn
 );
+
 editarCategoria.init();
 
 const produtosBody = document.querySelector("#produtos");
 const trPro = document.querySelectorAll("#produtos tr");
-const deleteBtn = document.querySelector(".excluir");
+const deleteBtn = document.querySelectorAll(".excluir");
 
 const deleteProduto = new Deletar(
   produtosBody,
@@ -70,5 +73,6 @@ const deleteProduto = new Deletar(
   "este",
   "produto"
 );
-
-deleteProduto.init();
+if (window.location.href == "http://127.0.0.1:5500/index.html") {
+  deleteProduto.init();
+}
